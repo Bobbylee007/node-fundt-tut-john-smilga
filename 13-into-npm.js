@@ -18,3 +18,7 @@ const _ = require('lodash');
 const items = [1,[2,[3,[4]]]]
 const newItems = _.flattenDeep(items)
 console.log(newItems)
+
+
+// const sum = 12 + 12;
+// console.log(sum)
