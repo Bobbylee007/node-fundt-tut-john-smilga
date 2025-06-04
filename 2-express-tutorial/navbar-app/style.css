@@ -33,21 +33,38 @@ body{
 
 }
 @media (width <= 650px) {
+
+    .nav-bar{
+        position: relative;
+        display: flex;
+        width: 100%;
+    
+    }
  .nav-link, .nav-svg{
-    position: relative;
         display: none;
     }
     .nav-toggle .nav-toggle-img{
         display: inline-block;
+        width: 100%;
         transition: all;
     }
     
-    .nav-toggle-img:hover{
-        display: block;
-        transform: rotate(90deg);
+    
+     .nav-link2{
+        display: flex;
+        flex-direction: column ;
+        text-align: center;
+        align-content: center;
+        align-items: center;
+        gap: 16px;
+        padding: 16px;
+        list-style: none;
+        height: auto;
+        width: 100%;
+        position: absolute;
+        left:0;
+        top: 90px;
+        background: #ffffff;
+        box-shadow: 20px 10px 20px rgba(128, 128, 128, 0.479);
     }
-    .nav-bar .nav-toggle:hover, .nav-link{
-        display: block;
-    }
- 
 }
