@@ -49,6 +49,10 @@ body{
         transition: all;
     }
     
+    .nav-toggle .nav-toggle-img:hover{
+        transform: rotate(90deg);
+        border: 1px solid black;
+    }
     
      .nav-link2{
         display: flex;
