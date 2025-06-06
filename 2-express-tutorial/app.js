@@ -1,8 +1,18 @@
-const http = require('http')
+const express = require('express')
+const path = require('path')
+const app = express()
 
-const server = http.createServer((req, res) =>{
-    console.log("user hit the server")
-    res.end('home page')
+app.use(express.static('./public'))
+
+app.get('/', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './navbar-app/index.html'))
 })
 
-server.listen(5000)
+
+app.use((req, res) => {
+  res.status(404).send('Route not found');
+});
+
+app.listen(5000, () => (
+    console.log('server is listening on port 5000...')
+))

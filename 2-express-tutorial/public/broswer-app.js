@@ -6,7 +6,5 @@ const toggleMenu = document.querySelector('.nav-toggle-img')
 
 btn.addEventListener('click', () =>{
     toggleNavLinks.classList.toggle('nav-link2');
-    toggleMenu.style.transform = "rotate(90deg)";
-  
-
+    
 })
