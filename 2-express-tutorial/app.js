@@ -1,18 +1,25 @@
 const express = require('express')
-const path = require('path')
 const app = express()
+const { products} = require('./data')
 
-app.use(express.static('./public'))
 
-app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './navbar-app/index.html'))
+app.get('/', (req,res)=>{
+  res.send('<h1> Home Page</h1><a href="api/products">products</a>')
 })
 
+app.get('/api/products', (req,res)=>{
+  const newProduct = products.map((product)=>{
+    const {id,name,image} = product;
+    return {id,image,name}
+  })
 
-app.use((req, res) => {
-  res.status(404).send('Route not found');
-});
+  res.json(newProduct)
+  res.json(products)
+}) 
 
-app.listen(5000, () => (
-    console.log('server is listening on port 5000...')
-))
+
+
+
+app.listen(5000, ()=>{
+  console.log('server is listening on PORT 5000...')
+})
