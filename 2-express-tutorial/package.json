@@ -5,7 +5,7 @@
   "main": "1-http-basic.js",
   "scripts": {
     "start": "node app.js",
-    "dev":"nodemon app.js"
+    "dev": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/Bobbylee007/2-express-tutorial#readme",
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
