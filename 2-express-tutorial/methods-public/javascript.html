@@ -21,11 +21,14 @@
     <main>
         <section class="form-container">
             <h1 class="form-title">Traditional Form</h1>
-            <form action="" class="form-control">
+            <form  class="form-control">
                 <label for="name">Enter Name</label>
-                <input type="text" id="name">
-                <button class="btn">Submit</button>
+                <input type="text" id="name" name="name" class="form-input">
+                <small class="form-alert"></small>
+                <button class="btn ">Submit</button>
             </form>
+            <div class="result"></div>
+
             <div class="data-container">
                 <ul class="data-list">
                     <li>john</li>
@@ -37,6 +40,46 @@
             </div>
         </section>
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.9.0/axios.min.js" integrity="sha512-FPlUpimug7gt7Hn7swE8N2pHw/+oQMq/+R/hH/2hZ43VOQ+Kjh25rQzuLyPz7aUWKlRpI7wXbY6+U3oFPGjPOA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        const result = document.querySelector('.result')
+
+        const fecthPeople = async () => {
+            try {
+                const {data} = await axios.get('/api/people')
+                const people = data.data.map((person) => {
+                    return `<h5> ${person}<h5>`
+                })
+                result.innerHTML = people.join('')
+            } catch (error) {
+                result.innerHTML = `<div class ="alert alert-danger">Can't Fetch Data </div>`
+            }
+        }
+        fecthPeople()
+        // sumbit form
+        const btn = document.querySelector('.btn')
+        const input = document.querySelector('.form-input')
+        const formAlert = document.querySelector('.form-alert')
+        
+        btn.addEventListener('click', async (e) => {
+            e.preventDefault()
+            const nameValue =input.Value 
+
+            try {
+                const { data } = await axios.post('/api/people', { name : nameValue})
+                const h5 = document.createElement('h5')
+                h5.textContent = data.person
+                result.appendChild('h5')
+            } catch (error) {
+                // console.log(error.response)
+                formAlert.textContent = error.response.data.msg
+            }
+            input.value = ''
+        })
+        
+    </script>
+
+
 </body>
 
 </html>
