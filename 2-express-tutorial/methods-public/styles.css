@@ -29,6 +29,7 @@ body{
 
 main{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 56px;
@@ -67,9 +68,10 @@ input, .btn{
 input{
     background-color: #aad6ecce;
 }
-.btn{
+.block{
     color: aliceblue;
      background-color: rgba(3, 85, 192, 0.979);
+     
 }
 a{
     text-decoration: none;
