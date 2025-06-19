@@ -80,6 +80,8 @@ a{
 
 .data-container{
     display: flex;
+    flex-direction: row;
+    gap: 12px;
     align-items: center;
     margin: auto;
 }
@@ -88,4 +90,7 @@ a{
     flex-direction: row;
     list-style: none;
     gap: 12px;
+}
+.form-alert{
+    color: red;
 }

@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 let { people } = require('./data')
-
+ 
 // static assets
 app.use(express.static('./methods-public'))
 
@@ -42,6 +42,10 @@ app.post('/login', (req, res) => {
   res.status(401).send('please provide credentials')
   res.send('POST')
 })
+
+//Note: for everytime we need to test data we need to develop a frontend
+//      which will work much much time cusoming
+//      beter option is to use postman for testing data
 
 app.listen(5000, () => {
   console.log("server is listening on PORT 5000...");
