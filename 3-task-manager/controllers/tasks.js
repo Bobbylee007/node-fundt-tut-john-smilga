@@ -1,10 +1,13 @@
+const Task = require('../models/task');
+
 const getAllTasks = (req, res)=>{
     res.send('get all tasks')
 }
 
 //use for testing Api in postman
-const createTasks =  (req, res)=>{
-    res.json(req.body)
+const createTasks = async (req, res)=> {
+    const task = await Task.create(req.body)
+    res.status(201).json({ task })
 }
 const getTasks =  (req, res)=>{
     res.json({id:req.params.id})
