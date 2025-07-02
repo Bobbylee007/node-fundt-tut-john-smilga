@@ -3,8 +3,10 @@ const app = express();
 const tasks = require('./routes/tasks')
 const connectDB = require('./db/connect')
 require('dotenv').config()
-// middleware
 
+
+// middleware
+app.use(express.static('./public'))  //serve static file
 app.use(express.json())
 
 
