@@ -57,14 +57,17 @@ input, .submit-btn{
     border-style: none;
     font-size: medium;
 }
-.form-input{
+.task-input{
     background-color: #aad6ecce;
     width: 75%;
+    
+
 }
 .submit-btn{
     color: aliceblue;
      background-color: rgba(3, 85, 192, 0.979);
      width: 25%;
+     cursor: pointer;
 }
 a{
     text-decoration: none;
@@ -86,4 +89,17 @@ a{
 }
 .form-alert{
     color: red;
+}
+
+.task-container{
+     display: flex;
+    flex-direction: column;
+    align-content: stretch;
+    align-items: stretch;
+    width: 380px;
+    padding: 16px;
+    margin: 16px;
+    margin-bottom: 32px;
+    background-color: aliceblue;
+    box-shadow: 0px 4px 12px rgb(146, 145, 145)
 }

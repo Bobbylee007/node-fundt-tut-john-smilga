@@ -6,28 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
-
- 
+    
+    
     <main>
         <section class="form-container">
             <h1 class="form-title">Task Manager</h1>
             <form class="form-control">
-             <input type="text" id="name" name="name" class="form-input" autocomplete="false" placeholder="eg wash dishes">
+                <input type="text" id="name" name="name" class="task-input" placeholder="e.g. wash dishes">
              <button type="submit" class="block submit-btn">Submit</button>
              <div class="form-alert"></div>
             </form>
         </section>
-
+        
         <section class="task-container">
-            <p class="loading-text"></p>
+            <p class="loading-text">Loading...</p>
             <div class="tasks"></div>
         </section>
-
+        
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.9.0/axios.min.js" integrity="sha512-FPlUpimug7gt7Hn7swE8N2pHw/+oQMq/+R/hH/2hZ43VOQ+Kjh25rQzuLyPz7aUWKlRpI7wXbY6+U3oFPGjPOA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
+    <!-- <script>
         const result = document.querySelector('.result')
-
+        
         const fecthPeople = async () => {
             try {
                 const {data} = await axios.get('/api/people')
@@ -49,7 +49,7 @@
         btn.addEventListener('click', async (e) => {
             e.preventDefault();
             const nameValue = input.value;
-
+            
             try {
                 const { data } = await axios.post('/api/people', { name: nameValue})
                 const h5 = document.createElement('h5')
@@ -62,7 +62,8 @@
             input.value = ''
         })
         
-    </script>
+        </script> -->
+        <script src="javascript.js"></script>
 
 
 </body>
