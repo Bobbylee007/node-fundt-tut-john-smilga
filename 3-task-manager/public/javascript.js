@@ -1,13 +1,16 @@
-const loadingDom = document.querySelector('loading-text')
-const formDom = document.querySelector('submit-btn')
-const tasksDom = document.querySelector('tasks')
+const tasksDom = document.querySelector('.tasks')
+const loadingDom = document.querySelector('.loading-text')
+const formDom = document.querySelector('.task-form')
+const taskInputDom = document.querySelector('.task-input')
+const formAlertDom = document.querySelector('.form-alert')
 
 
 
-
-const showTasks = async () => {
+// Load task from /api/task
+const showTasks = async () => { 
+    loadingDom.style.visiblity = 'visible'
     try {
-       const {tasks} = await axios.get('/api/v1/tasks')
+       const { data: { tasks }, } = await axios.get('/api/v1/tasks')
        if(tasks.lenght < 1){
         tasksDom.innerHTML = '<h5 class="empty-list">No tasks in your list</h5>'
         loadingDom.style.visiblity = 'hidden'
@@ -18,6 +21,7 @@ const showTasks = async () => {
         return `
             <div class="single-task ${completed && 'task-compled'}">
             <h5><span><i class="far fa-check-circle"></i></span>${name}</h5>
+            <div class="task-link">
              
             <!-- edit link -->
             <a href="task.html?id=${taskID}" class="edit-link">
@@ -28,7 +32,7 @@ const showTasks = async () => {
             <button type="button" class="delete-btn" data-id="${taskID}">
             <i class="fas fa-trash"></i>
             </button>
-            
+            </div>
             
             </div>`
        })
@@ -45,7 +49,7 @@ showTasks()
 
 tasksDom.addEventListener( 'click', async (e) => {
     const el = e.target
-    if(el.parentElement.classList.contains('delete-btn')) {
+    if(el.parentElement.classList.contains('.delete-btn')) {
         loadingDom.style.visiblity = 'visible'
         const id = el.parentElement.dataset.id
         try {
