@@ -21,18 +21,17 @@ const showTasks = async () => {
         return `
             <div class="single-task ${completed && 'task-compled'}">
             <h5><span><i class="far fa-check-circle"></i></span>${name}</h5>
-            <div class="task-link">
              
             <!-- edit link -->
+
             <a href="task.html?id=${taskID}" class="edit-link">
             <i class="fas fa-edit"></i>
             </a>
             
-            <-- delete btn -->
+            <!-- delete btn -->
             <button type="button" class="delete-btn" data-id="${taskID}">
             <i class="fas fa-trash"></i>
             </button>
-            </div>
             
             </div>`
        })

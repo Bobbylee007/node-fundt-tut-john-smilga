@@ -7,26 +7,35 @@
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
     
-    
-    
+
     <main>
         <section class="form-container">
             <h1 class="form-title">Edit Task</h1>
             <form class="form-control">
-                <input type="text" id="name" name="name" class="task-input" placeholder="e.g. wash dishes">
-             <button type="submit" class="block submit-btn">Submit</button>
+
+                <label for="taskId">Task ID</label>
+                <input type="text" id="taskId" name="taskId" class="" placeholder="">
+                
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" class="" placeholder="">
+
+                <label for="name">Completed</label>
+                <input type="checkbox" id="check-input" completed=`${completed}` class="" placeholder="">
+
+             <button type="edit" class="block edit-btn">Edit</button>
              <div class="form-alert"></div>
             </form>
         </section>
         
-        <section class="task-container">
-            <p class="loading-text">Loading...</p>
-            <div class="tasks"></div>
+        
+        <section>
+            <button><a href="index.html">Back To Tasks</a></button>
         </section>
+       
         
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.9.0/axios.min.js" integrity="sha512-FPlUpimug7gt7Hn7swE8N2pHw/+oQMq/+R/hH/2hZ43VOQ+Kjh25rQzuLyPz7aUWKlRpI7wXbY6+U3oFPGjPOA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
+ 
     <script src="javascript.js"></script>
 
 
