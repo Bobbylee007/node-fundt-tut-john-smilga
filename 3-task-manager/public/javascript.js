@@ -1,6 +1,6 @@
 const tasksDom = document.querySelector('.tasks')
-const loadingDom = document.querySelector('.loading-text')
 const formDom = document.querySelector('.task-form')
+const loadingDom = document.querySelector('.loading-text')
 const taskInputDom = document.querySelector('.task-input')
 const formAlertDom = document.querySelector('.form-alert')
 
@@ -20,17 +20,17 @@ const showTasks = async () => {
         const { completed, _id: taskID, name} = task
         return `
             <div class="single-task ${completed && 'task-compled'}">
-            <h5><span><i class="far fa-check-circle"></i></span>${name}</h5>
+            <h5><span><i class="fa-regular fa-circle-check"></i></span>${name}</h5>
              
             <!-- edit link -->
 
             <a href="task.html?id=${taskID}" class="edit-link">
-            <i class="fas fa-edit"></i>
+            <i class="fa-regular fa-pen-to-square"></i>
             </a>
             
             <!-- delete btn -->
             <button type="button" class="delete-btn" data-id="${taskID}">
-            <i class="fas fa-trash"></i>
+            <i class="fa-solid fa-trash-xmark"></i>
             </button>
             
             </div>`
@@ -46,7 +46,7 @@ showTasks()
 
 // delete task   /api/tasks/:id
 
-tasksDom.addEventListener( 'click', async (e) => {
+tasksDom.addEventListener('click', async (e) => {
     const el = e.target
     if(el.parentElement.classList.contains('.delete-btn')) {
         loadingDom.style.visiblity = 'visible'
@@ -65,6 +65,7 @@ tasksDom.addEventListener( 'click', async (e) => {
 formDom.addEventListener('submit', async (e) => {
     e.preventDefault()
     const name = taskInputDom.value
+
     try{
         await axios.post('/api/v1/tasks', { name })
         showTasks()

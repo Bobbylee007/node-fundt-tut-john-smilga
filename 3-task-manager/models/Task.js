@@ -10,7 +10,7 @@ const TaskSchema = new mongoose.Schema({
     },
     complete:{
         type: Boolean,
-        default: false,
+        // default: false,
     }, 
 })
 module.exports = mongoose.model('Task', TaskSchema)
