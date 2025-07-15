@@ -1,29 +1,29 @@
-const tasksDom = document.querySelector('.tasks')
-const formDom = document.querySelector('.task-form')
-const loadingDom = document.querySelector('.loading-text')
-const taskInputDom = document.querySelector('.task-input')
-const formAlertDom = document.querySelector('.form-alert')
-
-
+const tasksDOM = document.querySelector('.tasks')
+const loadingDOM = document.querySelector('.loading-text')
+const formDOM = document.querySelector('.task-form')
+const taskInputDOM = document.querySelector('.task-input')
+const formAlertDOM = document.querySelector('.form-alert')
 
 // Load task from /api/task
 const showTasks = async () => { 
-    loadingDom.style.visiblity = 'visible'
+    loadingDOM.style.visiblity = 'visible'
     try {
-       const { data: { tasks }, } = await axios.get('/api/v1/tasks')
-       if(tasks.lenght < 1){
-        tasksDom.innerHTML = '<h5 class="empty-list">No tasks in your list</h5>'
-        loadingDom.style.visiblity = 'hidden'
+       const {
+         data: { data: {tasks}        },
+         } = await axios.get('/api/v1/tasks')
+       if (tasks.lenght < 1){
+        tasksDOM.innerHTML = '<h5 class="empty-list">No tasks in your list</h5>'
+        loadingDOM.style.visiblity = 'hidden'
         return
        }
-       const allTasks = tasks.map((task) => {
+       const allTasks = tasks
+       .map((task) => {
         const { completed, _id: taskID, name} = task
-        return `
-            <div class="single-task ${completed && 'task-compled'}">
+        return `<div class="single-task ${completed && 'task-compled'}">
             <h5><span><i class="fa-regular fa-circle-check"></i></span>${name}</h5>
-             
-            <!-- edit link -->
+            <div class ="task-links"> 
 
+            <!-- edit link -->
             <a href="task.html?id=${taskID}" class="edit-link">
             <i class="fa-regular fa-pen-to-square"></i>
             </a>
@@ -32,13 +32,14 @@ const showTasks = async () => {
             <button type="button" class="delete-btn" data-id="${taskID}">
             <i class="fa-solid fa-trash-xmark"></i>
             </button>
-            
+
+            </div>
             </div>`
        })
        .join('')
-       tasksDom.innerHTML= allTasks
+       tasksDOM.innerHTML= allTasks
     } catch (error) {
-       tasksDom.innerHTML = '<h5 class ="empty-list">there waas an eeror, please try later...</h5>' 
+       tasksDOM.innerHTML = '<h5 class ="empty-list">there waas an eeror, please try later...</h5>' 
     }
 }
 
@@ -46,10 +47,10 @@ showTasks()
 
 // delete task   /api/tasks/:id
 
-tasksDom.addEventListener('click', async (e) => {
+tasksDOM.addEventListener('click', async (e) => {
     const el = e.target
     if(el.parentElement.classList.contains('.delete-btn')) {
-        loadingDom.style.visiblity = 'visible'
+        loadingDOM.style.visiblity = 'visible'
         const id = el.parentElement.dataset.id
         try {
             await axios.delete(`/api/v1/tasks/${id}`)
@@ -62,14 +63,14 @@ tasksDom.addEventListener('click', async (e) => {
 
 // form
 
-formDom.addEventListener('submit', async (e) => {
+formDOM.addEventListener('submit', async (e) => {
     e.preventDefault()
-    const name = taskInputDom.value
+    const name = taskInputDOM.value
 
     try{
         await axios.post('/api/v1/tasks', { name })
         showTasks()
-        taskInputDom.value = ''
+        taskInputDOM.value = ''
         formAert.style.display = 'block'
         formAert.textContent = `success, task added`
         formAert.classlisst.add('text-success')
