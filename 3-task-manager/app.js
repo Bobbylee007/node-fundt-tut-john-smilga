@@ -3,6 +3,7 @@ const app = express();
 const tasks = require('./routes/tasks')
 const connectDB = require('./db/connect')
 require('dotenv').config()
+const notFound = require('./middleware/not-found')
 
 
 // middleware
@@ -22,6 +23,9 @@ app.use('/api/v1/tasks', tasks)
 // app.get('/api/v1/tasks/:id')      - get single tasks
 // app.patch('/api/v1/tasks/:id')    - update tasks
 // app.delete('/api/v1/tasks/:id')   - delete tasks
+
+// not found resource
+app.use(notFound)
 
 
 const port = 3000
