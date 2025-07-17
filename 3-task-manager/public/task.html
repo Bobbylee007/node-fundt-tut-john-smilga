@@ -13,16 +13,30 @@
             <h1 class="form-title">Edit Task</h1>
             <form class="form-control">
 
-                <label for="taskId">Task ID</label>
-                <input type="text" id="taskId" name="taskId" class="" placeholder="">
-                
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" class="" placeholder="">
+                <div class="contain-edit">
+                     
+                <div class="taskId edit">
+                    <p for="taskId">Task ID</p>
+                    <p for="taskId">12123456778hv</p>
 
+                </div>
+
+                <div class=" edit">
+                    <label for="name">Name</label>
+                <input type="text" id="name" name="name" class="" placeholder="">
+                </div>
+             
+                <div class="edit">
                 <label for="name">Completed</label>
                 <input type="checkbox" id="check-input" completed=`${completed}` class="" placeholder="">
+                </div>
+               
+                <div class="edit contain-edit-btn">
+                    <button type="edit" class="block edit-btn">Edit</button>
+               </div>
+             
+            
 
-             <button type="edit" class="block edit-btn">Edit</button>
              <div class="form-alert"></div>
             </form>
         </section>
