@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fontawesome-iconpicker/3.2.0/js/fontawesome-iconpicker.min.js"></script>
+    
+    
+    <main>
+        <section class="form-container">
+            <h1 class="form-title">Task Manager</h1>
+            <form class="form-control">
+                <input type="text" id="name" name="name" class="task-input" placeholder="e.g. wash dishes">
+             <button type="submit" class="task-form block submit-btn ">Submit</button>
+             <div class="form-alert"></div>
+            </form>
+        </section>
+        
+        <section class="task-container">
+            <p class="loading-text">Loading...</p>
+            <div class="tasks"></div>
+        </section>
+        
+    </main>
+    <!-- axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.9.0/axios.min.js" integrity="sha512-FPlUpimug7gt7Hn7swE8N2pHw/+oQMq/+R/hH/2hZ43VOQ+Kjh25rQzuLyPz7aUWKlRpI7wXbY6+U3oFPGjPOA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./browser-app.js"></script>
+    
+    
+    
+    <!-- <script>
+        const result = document.querySelector('.result')
+        
+        const fecthPeople = async () => {
+            try {
+                const {data} = await axios.get('/api/people')
+                const people = data.data.map((person) => {
+                    return `<h5>${person.name}</h5>`
+                })
+                result.innerHTML = people.join("")
+
+            } catch (error) {
+                result.innerHTML = `<div class ="alert alert-danger">Can't Fetch Data </div>`
+            }
+        }
+        fecthPeople()
+        // sumbit form
+        const btn = document.querySelector('.submit-btn')
+        const input = document.querySelector('.form-input')
+        const formAlert = document.querySelector('.form-alert')
+        
+        btn.addEventListener('click', async (e) => {
+            e.preventDefault();
+            const nameValue = input.value;
+            
+            try {
+                const { data } = await axios.post('/api/people', { name: nameValue})
+                const h5 = document.createElement('h5')
+                h5.textContent = data.person
+                result.appendChild(h5)
+            } catch (error) {
+                // console.log(error.response)
+                formAlert.textContent = error.response.data.msg
+            }
+            input.value = ''
+        })
+        
+        </script> -->
+
+
+</body>
+
+</html>
