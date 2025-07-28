@@ -1,41 +1,39 @@
-const product = require('../models/product')
-
+const product = require("../models/product");
 
 // manual approach
-const getAllProductsStatic = async  (req, res) => {
-    const search = 'ab'
-    const products = await product.find({
-        name: { $regex: search, $options: 'i'}
-    })
-    res.status(200).json({products, nbHits: products.length})
-    // throw new Error('testing async Errors')
-    // res.status(200).json({msg:'products testing route'})
-}
-
+const getAllProductsStatic = async (req, res) => {
+  const products = await product.find({}).sort("-name price");
+  res.status(200).json({ products, nbHits: products.length });
+  // throw new Error('testing async Errors')
+  // res.status(200).json({msg:'products testing route'})
+};
 
 // real functionality
-const getAllProducts = async  (req, res) => {
-    const {featured, company, name } = req.query
-    const queryObject = {}
-   
-    if (featured) {
-        queryObject.featured = featured === 'true'? true : false
-    }
+const getAllProducts = async (req, res) => {
+  const { featured, company, name, sort } = req.query;
+  const queryObject = {};
 
-    if(company) {
-        queryObject.company = company   
-    }
+  if (featured) {
+    queryObject.featured = featured === "true" ? true : false;
+  }
 
-    if(name) {
-        queryObject.name =  { $regex: name, $options: 'i'}
-    }
-    console.log(queryObject);
-    
-     const products = await product.find(queryObject);
-    res.status(200).json({ products, nbHits: products.length })
-}
+  if (company) {
+    queryObject.company = company;
+  }
+
+  if (name) {
+    queryObject.name = { $regex: name, $options: "i" };
+  }
+  console.log(queryObject);
+
+  let result = await product.find(queryObject)
+  if (sort) {
+    proucts = products.sort()
+  }
+  
+  res.status(200).json({ products, nbHits: products.length });
+};
 module.exports = {
-    getAllProductsStatic, 
-    getAllProducts,
-
-}
+  getAllProductsStatic,
+  getAllProducts,
+};
