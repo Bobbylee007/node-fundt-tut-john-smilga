@@ -41,37 +41,36 @@
       
       <div class="field-container">
         <label for="name" id="name">Username</label>
-        <input type="text" id="name" class="inputDom">
+        <input type="text" id="name" class="inputDom username-input">
       </div>
 
       <div class="field-container">
         <label for="name" id="name">Password</label>
-        <input type="password" id="Password" class="inputDom">
+        <input type="password" id="Password" class="inputDom  password-input">
       </div>
-  
-      <button class="btn submit-btn">Submit</button>
+      <div>
+        <p class="form-alert"></p>
+      </div>
+      <button class="btn submit-btn form">Submit</button>
 
     </section>
 
     <section class="dashboard-container">
       <div class="content-title ">
         <h2>dashboard</h2>
-        <p>No Token Present</p>
+        <p class="token">No Token Present</p>
       </div>
 
-      <div class="content-data">
+      <div class="content-data result">
         undefined
       </div>
 
-    <button class="submit-btn">Get Data</button>
+    <button id="data" class="submit-btn">Get Data</button>
 
     </section>
-
-
   </main>
-
-
   <script src="broswer-app.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.9.0/axios.min.js" integrity="sha512-FPlUpimug7gt7Hn7swE8N2pHw/+oQMq/+R/hH/2hZ43VOQ+Kjh25rQzuLyPz7aUWKlRpI7wXbY6+U3oFPGjPOA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 
 </html>
