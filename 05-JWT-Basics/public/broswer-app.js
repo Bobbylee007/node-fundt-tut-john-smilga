@@ -1,5 +1,5 @@
-const axios = require('axios')
-const formDom = document.querySelector('.form')
+// const axios = require('axios')
+const formDom = document.querySelector('.btn')
 const usernameInputDom = document.querySelector('.username-input')
 const passwordInputDom = document.querySelector('.password-input')
 const formAlertDom = document.querySelector('.form-alert')
@@ -8,7 +8,9 @@ const btnDom = document.querySelector('#data')
 const tokenDom = document.querySelector('.token')
 
 
-formDom.addEventListener('submit', async (e) => {
+formDom.addEventListener('submit', async(e)=>{
+     console.log('i just click');
+
     formAlertDom.classList.remove('text-success')
     tokenDom.classList.remove('text-success')
 
@@ -16,8 +18,8 @@ formDom.addEventListener('submit', async (e) => {
     const username = usernameInputDom.value
     const password = passwordInputDom.value
 
-    try {
-        const {data} = await axios.posy('/api/v1/login', { username, password})
+    try {        
+        const {data} = await axios.post('/api/v1/login', { username, password })
 
         formAlertDom.style.display = 'block'
         formAlertDom.textContent.display = data.msg
@@ -43,7 +45,7 @@ formDom.addEventListener('submit', async (e) => {
     }, 2000)    
 })
 
-btnDom.addEventListener('click', async ()=>{
+btnDom.addEventListener('click', async()=>{
     const token = localStorage.getItem('token')
     try {
         const { data } = await axios.get('/api/v1/dashboard', {
