@@ -1,16 +1,14 @@
 // const axios = require('axios')
-const formDom = document.querySelector('.btn')
-const usernameInputDom = document.querySelector('.username-input')
-const passwordInputDom = document.querySelector('.password-input')
+const formDom = document.querySelector('.form-container')
+const usernameInputDom = document.querySelector('.username')
+const passwordInputDom = document.querySelector('.password')
 const formAlertDom = document.querySelector('.form-alert')
 const resultDom = document.querySelector('.result')
 const btnDom = document.querySelector('#data')
 const tokenDom = document.querySelector('.token')
 
 
-formDom.addEventListener('submit', async(e)=>{
-     console.log('i just click');
-
+formDom.addEventListener('submit', async (e) => {
     formAlertDom.classList.remove('text-success')
     tokenDom.classList.remove('text-success')
 
@@ -19,14 +17,14 @@ formDom.addEventListener('submit', async(e)=>{
     const password = passwordInputDom.value
 
     try {        
-        const {data} = await axios.post('/api/v1/login', { username, password })
+        const { data } = await axios.post('/api/v1/login', { username, password })
 
         formAlertDom.style.display = 'block'
-        formAlertDom.textContent.display = data.msg
+        formAlertDom.textContent = data.msg
 
         formAlertDom.classList.add('text-success')
-        usernameInputDom = ''
-        passwordInputDom = ''
+        usernameInputDom.value = ''
+        passwordInputDom.value = ''
 
         localStorage.setItem('token', data.token)
         resultDom.innerHTML= ''
@@ -45,12 +43,12 @@ formDom.addEventListener('submit', async(e)=>{
     }, 2000)    
 })
 
-btnDom.addEventListener('click', async()=>{
+btnDom.addEventListener('click', async() => {
     const token = localStorage.getItem('token')
     try {
         const { data } = await axios.get('/api/v1/dashboard', {
-            Headers: {
-                Authorization: `Beare ${token},`,
+            headers: {
+                Authorization: `Bearer ${token}`,
             }, 
         })
         resultDom.innerHTML = `<h5>${data.msg}</h5><p>${data.secret}</p>`
