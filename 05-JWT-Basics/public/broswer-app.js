@@ -34,7 +34,7 @@ formDom.addEventListener('submit', async (e) => {
         formAlertDom.textContent = error.response.data.msg
         localStorage.removeItem('token')
         resultDom.innerHTML = ''
-        tokenDom.textContent = 'no token present'
+        tokenDom.textContent = 'No Token Present'
         tokenDom.classList.remove('text-success')
         
     }

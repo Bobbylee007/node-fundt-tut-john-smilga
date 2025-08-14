@@ -11,16 +11,20 @@ const errorHandlerMiddleware = require('./middleware/error-handler')
 const { dashboard, login } = require('./controllers/main')
 
 
-// middleware
+// middleware  routes-middleware & Error-middleware
+
+//static file 
 app.use(express.static('./public'))
 app.use(express.json())
 
+// routes
 app.use('/api/v1', mainRouter)
 
+//Errors
 app.use(notFoundMiddleware)
 app.use(errorHandlerMiddleware)
 
-//routes
+
 
 
 // server 
