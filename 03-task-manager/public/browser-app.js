@@ -1,8 +1,9 @@
 const tasksDOM = document.querySelector('.tasks')
 const loadingDOM = document.querySelector('.loading-text')
-const formDOM = document.querySelector('.task-form')
+const formDOM = document.querySelector('.form-control')
 const taskInputDOM = document.querySelector('.task-input')
 const formAlertDOM = document.querySelector('.form-alert')
+
 // Load task from /api/task
 const showTasks = async () => { 
     loadingDOM.style.visiblity = 'visible'
@@ -40,6 +41,9 @@ const showTasks = async () => {
     } catch (error) {
        tasksDOM.innerHTML = '<h5 class ="empty-list"> there waas an eeror, please try later... </h5>' 
     }
+     setTimeout(() => {
+        loadingDOM.style.display = 'none'
+    }, 2000)
 }
 
 showTasks()
@@ -49,7 +53,7 @@ showTasks()
 tasksDOM.addEventListener('click', async (e) => {
     const el = e.target
     if(el.parentElement.classList.contains('.delete-btn')) {
-        loadingDOM.style.visiblity = 'visible'
+        loadingDOM.style.display = 'visible'
         const id = el.parentElement.dataset.id
         try {
             await axios.delete(`/api/v1/tasks/${id}`)
@@ -82,5 +86,6 @@ formDOM.addEventListener('submit', async (e) => {
     setTimeout(() => {
         formAert.style.display = 'hidden'
         formAert.classList.remove('text-success')
-    }, 3000)
+        loadingDOM.style.display = 'none'
+    }, 2000)
 })

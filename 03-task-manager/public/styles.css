@@ -81,6 +81,13 @@ a{
     align-items: center;
     margin: auto;
 }
+
+.loading-text{
+   color: #1f3ad3;
+   
+   
+}
+
 .data-list{
     display: flex;
     flex-direction: row;
@@ -116,34 +123,3 @@ a{
     justify-content: space-around;
 }
 
-/*=========    Edit task   ==========*/
-.contain-edit{
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: center;
-    
-}
- .edit{
-    display: flex;
-    flex-direction: row;
-    align-content: space-evenly;
-    gap: 64px;
-    width: 100%;
-    
-}
-
-.edit-btn{
-    width: 100%;
-    padding: 8px 24px;
-    background: #1f3ad3;
-    color: #c3caf0;
-    outline: none;
-
-}
-.contain-edit-btn{
-    align-items:center ;
-}
-.fa-regular{
-    color: #1f3ad3;
-}

@@ -5,45 +5,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="edit-style.css">
     
 
     <main>
         <section class="form-container">
             <h1 class="form-title">Edit Task</h1>
+        
             <form class="form-control">
-
+        
                 <div class="contain-edit">
-                     
-                <div class="taskId edit">
-                    <p for="taskId">Task ID</p>
-                    <p for="taskId">12123456778hv</p>
-
+        
+                    <div class="taskId edit">
+                        <p class="taskId">Task ID</p>
+                        <p class="taskId-num">12123456778hv</p>
+                    </div>
+        
+                    <div class=" edit">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" class="" placeholder="">
+                    </div>
+        
+                    <div class="radio-btn edit">
+                        <label for="name">Completed</label>
+                        <input type="checkbox" id="check-input" completed=`${completed}` class="" placeholder="">
+                    </div>
+        
+                    <div class=" contain-edit-btn">
+                        <button type="edit" class="block edit-btn">Edit</button>
+                    </div>
+        
                 </div>
-
-                <div class=" edit">
-                    <label for="name">Name</label>
-                <input type="text" id="name" name="name" class="" placeholder="">
-                </div>
-             
-                <div class="edit">
-                <label for="name">Completed</label>
-                <input type="checkbox" id="check-input" completed=`${completed}` class="" placeholder="">
-                </div>
-               
-                <div class="edit contain-edit-btn">
-                    <button type="edit" class="block edit-btn">Edit</button>
-               </div>
-             
-            
-
-             <div class="form-alert"></div>
+               <div class="form-alert"></div>
             </form>
         </section>
-        
-        
         <section>
-            <button><a href="index.html">Back To Tasks</a></button>
+            <button class="btn-link"><a href="index.html">Back To Tasks</a></button>
         </section>
        
         

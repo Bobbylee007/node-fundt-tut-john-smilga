@@ -1,0 +1,111 @@
+*,
+::before,
+::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: content-box;
+    font-family:  Arial, sans-serif;
+}
+
+body{
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    background: #aad6ecce;
+}
+
+
+
+
+/*=========    Edit task   ==========*/
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25vh;
+}
+.form-container{
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+    align-items: stretch;
+    width: 380px;
+    padding: 2rem 1.5rem; 
+    margin-bottom: 4rem;
+    background-color: aliceblue;
+    box-shadow: 0px 4px 12px rgb(146, 145, 145)
+}
+.form-container h1{
+text-align: center;
+margin-bottom: 2rem;
+}
+.contain-edit{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.8rem;  
+}
+ .edit{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    gap: 2rem;
+   align-items: baseline;
+     
+}
+ .taskId-num{
+    margin-left: 1.5rem;
+}
+.radio-btn{
+    align-content: baseline;
+}
+.edit-btn{
+    width: 86.5%;
+    padding: 8px 24px;
+    background: #1f3ad3;
+    color: #c3caf0;
+    outline: none;
+    cursor: pointer;
+}
+
+.contain-edit-btn{
+    align-items:center ;
+}
+
+    [type="text"]{
+    width: 70%;
+    height: 2.1rem;
+    padding-inline: 0.5rem 2rem;
+    font-size: medium;
+    cursor: text;
+    border: none;
+    background: #aad6ecce;
+    margin-left: 2rem;
+
+    &:focus{
+        outline: none;
+    }
+}
+
+.radio-btn, [type="checkbox"]{
+    cursor: pointer;
+    border: none;
+    align-content: baseline;
+    
+}
+.fa-regular{
+    color: #1f3ad3;
+}
+
+.btn-link{
+    background: #181818;
+    padding: 0.5rem 4rem;
+    
+}
+
+.btn-link a{
+    color: #c3caf0;
+    text-decoration: none;
+    outline: 0;
+    cursor: pointer;
+}
