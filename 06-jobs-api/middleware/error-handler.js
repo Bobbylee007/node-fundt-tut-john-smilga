@@ -1,6 +1,5 @@
-const {CustomAPIError} = require('../errors')
+// const {CustomAPIError} = require('../errors') dont  need it since customError works
 const {StatusCodes} = require('http-status-codes')
-
 const errorHandlerMiddleware = async (err, req, res, next) => {
   
   let customError = {
@@ -12,6 +11,12 @@ const errorHandlerMiddleware = async (err, req, res, next) => {
   // if(err instanceof CustomAPIError){
   //   return res.status(err.statusCode).json({ msg: err.message})
   // }
+
+  if (err.name === 'ValidationError') {
+    console.log(Object.values(err.errors));
+    customError.msg = Object.values(err.errors).map((item)=>item.message).join(',')
+    customError.statusCode = 400
+  }
 
   if(err.code && err.code === 11000){
     customError.msg = `Duplicate Value entered for ${Object.keys(err.keyValue)} field, please choose another value`
