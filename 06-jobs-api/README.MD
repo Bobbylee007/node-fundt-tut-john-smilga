@@ -44,4 +44,14 @@ Email Validation Regex
 #### Login Route
 
 - Validate - email, password - in controller
-- Try to find user
+- if email or password is missing, throw BadRequestError
+- find user
+- compare Password does not match, throw UnauthenticatedError
+- if correct, generate Token
+- send Response with Token
+
+#### Mongoose Error
+
+- Validation Errors
+- Dupicate (Email)
+- cast Error
