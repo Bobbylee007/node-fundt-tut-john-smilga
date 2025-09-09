@@ -55,3 +55,11 @@ Email Validation Regex
 - Validation Errors
 - Dupicate (Email)
 - cast Error
+
+
+#### Secrity
+
+- helmet 
+- cors
+- xss-clean
+- express-rate-limit
